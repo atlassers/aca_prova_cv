@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import it.euris.academy.teslabattery_cv.data.archetype.Model;
+import it.euris.academy.teslabattery_cv.data.dto.FormulaDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,8 +23,8 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "formula")
-public class Formula {
-  
+public class Formula implements Model{
+  //join table?
   @Id
   @Column(name = "id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,5 +43,19 @@ public class Formula {
   @Column(name = "unit")
   private String unit;
   
-  
+  public Formula(String formulaId) {
+    if (formulaId != null) {
+      this.id = Long.parseLong(formulaId);
+    }
+  }
+
+  @Override
+  public FormulaDto toDto() {
+    return FormulaDto.builder()
+        .id(id.toString())
+        .quantity(quantity)
+        .unit(unit)
+        .build();
+  }
 }
+

@@ -11,7 +11,7 @@ public interface RobotService {
   
   public RobotDto add(RobotDto robotDto);
 
-  public RobotDto update(RobotDto componentDto);
+  public RobotDto update(RobotDto robotDto);
   
   public Boolean delete(Long id);
   

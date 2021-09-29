@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import it.euris.academy.teslabattery_cv.data.archetype.Dto;
+import it.euris.academy.teslabattery_cv.data.archetype.Model;
+import it.euris.academy.teslabattery_cv.data.dto.AssemblyLineDto;
+import it.euris.academy.teslabattery_cv.data.dto.RobotDto;
 import it.euris.academy.teslabattery_cv.enums.Job;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +26,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="robot")
 
-public class Robot {
+public class Robot implements Model{
   @Id
   @Column(name = "id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,4 +41,13 @@ public class Robot {
   @ManyToOne
   @JoinColumn(name="assembly_line", nullable = false)
   private AssemblyLine assemblyLine;
+
+  @Override
+  public RobotDto toDto() {
+    
+    return RobotDto.builder()
+        .id(id.toString())
+        .job(job.toString())
+        .order(order.toString()).build(); 
+  }
 }

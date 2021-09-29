@@ -50,6 +50,8 @@ public class Component implements Model {
     
     return ComponentDto.builder()
         .id(id.toString())
-        .element(element).build();     
+        .element(element)
+        .dangerType(dangerType.toString())
+        .build();     
   }
 }

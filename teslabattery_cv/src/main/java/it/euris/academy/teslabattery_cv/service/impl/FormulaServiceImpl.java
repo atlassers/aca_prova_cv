@@ -13,9 +13,10 @@ import it.euris.academy.teslabattery_cv.data.model.Formula;
 import it.euris.academy.teslabattery_cv.exception.IdMustBeNullException;
 import it.euris.academy.teslabattery_cv.exception.IdMustNotBeNullException;
 import it.euris.academy.teslabattery_cv.repository.FormulaRepository;
+import it.euris.academy.teslabattery_cv.service.FormulaService;
 
 @Service
-public class FormulaServiceImpl {
+public class FormulaServiceImpl implements FormulaService{
   @Autowired
   private FormulaRepository formulaRepository;
   

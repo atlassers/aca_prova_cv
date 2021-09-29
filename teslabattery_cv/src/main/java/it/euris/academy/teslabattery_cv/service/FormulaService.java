@@ -10,7 +10,7 @@ public interface FormulaService {
   
   public FormulaDto get(Long id);
   
-  public FormulaDto add(FormulaDto nationDto);
+  public FormulaDto add(FormulaDto formulaDto);
 
   public FormulaDto update(FormulaDto formulaDto);
   
