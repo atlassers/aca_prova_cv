@@ -11,6 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import it.euris.academy.teslabattery_cv.data.archetype.Dto;
 import it.euris.academy.teslabattery_cv.data.archetype.Model;
+import it.euris.academy.teslabattery_cv.data.dto.ProductiveCycleDto;
 import it.euris.academy.teslabattery_cv.enums.StatusPC;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -48,8 +49,12 @@ public class ProductiveCycle implements Model{
   private Instant endDate;
 
   @Override
-  public Dto toDto() {
-    // TODO Auto-generated method stub
-    return null;
+  public ProductiveCycleDto toDto() {
+    return ProductiveCycleDto.builder()
+        .id(id.toString())
+    .startDate(startDate.toString())
+    .statusDateChange(statusDateChange.toString())
+    .endDate(endDate.toString())
+    .build();
   }
 }

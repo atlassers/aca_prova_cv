@@ -23,14 +23,14 @@ public class AssemblyLineDto implements Dto{
   private String id;
   private String name;
   private String time;
-  //private List<Robot> robots;
+  private List<Robot> robots;
   
   @Override
   public AssemblyLine toModel() {
-  //  List<RobotDto> collect = new ArrayList<RobotDto>();
-//    if(robots != null) {
-//      collect= robots.stream().map(curRobot -> curRobot.toDto()).collect(Collectors.toList());
-//    }
+    List<RobotDto> collect = new ArrayList<RobotDto>();
+    if(robots != null) {
+      collect= robots.stream().map(curRobot -> curRobot.toDto()).collect(Collectors.toList());
+    }
     return AssemblyLine.builder()
         .id(UT.toLong(id))
         .name(name)

@@ -38,6 +38,12 @@ public class AssemblyLine implements Model{
   @OneToMany(mappedBy = "assembly_line")
   private List<Robot> robots;
 
+  public AssemblyLine(String assemblyLineId) {
+    if (assemblyLineId != null) {
+      this.id = Long.parseLong(assemblyLineId);
+    }
+  }
+    
   @Override
   public AssemblyLineDto toDto() {
     return AssemblyLineDto.builder().id(id.toString())
